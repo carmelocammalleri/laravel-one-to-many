@@ -23,8 +23,13 @@
             <input type="text" class="form-control" id="tecnology" name="tecnology" value="{{ old('tecnology',$project->tecnology) }}">
         </div>
         <div class="mb-3">
-            <label for="type" class="form-label">Tipo</label>
-            <input type="text" class="form-control" id="type" name="type" value="{{ old('type', $project->type) }}">
+            <label for="type_id" class="form-label">Tipo</label>
+            <select id="type_id" name="type_id" class="form-select">
+                <option value="-">Selezionare una tipologia</option>
+                @foreach ($types as $type)
+                <option value="{{ $type->id }}" {{ old('type_id', $project?->type_id) == $type->id?'selected' : '' }} >{{ $type->name }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Pagination\Paginator;
 use App\Http\Requests\ProjectRequest;
 
@@ -30,7 +31,8 @@ class ProjectController extends Controller
     public function create()
     {
         $title = 'Inserimento nuovo progetto';
-        return view('admin.projects.create', compact('title'));
+        $types = Type::all();
+        return view('admin.projects.create', compact('title','types'));
     }
 
     /**
@@ -70,7 +72,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $title='Modifica i singoli elementi';
-        return view('admin.projects.edit', compact('project', 'title'));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project', 'title','types'));
     }
 
     /**
