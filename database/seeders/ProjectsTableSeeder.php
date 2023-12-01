@@ -24,7 +24,6 @@ class ProjectsTableSeeder extends Seeder
             $new_project->slug = Project::generateSlug($new_project->name);
             $new_project->date_creation = $faker->date();
             $new_project->description = $faker->text();
-            $new_project->type = $faker->word();
             $new_project->tecnology = $faker->word();
             $new_project->web_site = $faker->url();
             $new_project->save();

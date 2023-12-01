@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('slug', 100)->unique();
             $table->date('date_creation');
             $table->string('description',200)->nullable();
-            $table->string('type',50)->nullable();
             $table->string('tecnology',50)->nullable();
             $table->string('web_site',200)->nullable();
             $table->timestamps();
