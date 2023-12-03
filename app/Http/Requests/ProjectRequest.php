@@ -23,11 +23,11 @@ class ProjectRequest extends FormRequest
     {
         return [
             "name" => "required|min:2|max:100",
-            "date_creation" => "required|numeric",
-            "description" => "required|max:200",
-            "type" => "required|max:50",
-            "tecnology" => "required|max:50",
-            "web_site" => "required|max:200"
+            "date_creation" => "required",
+            "description" => "max:200",
+            "type" => "max:50",
+            "tecnology" => "max:50",
+            "web_site" => "max:200"
             ];
     }
     public function messages(){
@@ -36,10 +36,10 @@ class ProjectRequest extends FormRequest
             "name.min" => "Il nome deve essere lungo almeno :min caratteri.",
             "name.max" => "Il nome deve essere minore di :max caratteri",
             "date_creation.numeric" => "La data deve essere un numero.",
-            "description.required" => "La descrizione non deve superare :max caratteri.",
-            "type.required" => "Il Tipo non deve superare :max caratteri.",
-            "tecnology.required" => "La Tecnologia non deve superare :max caratteri.",
-            "web_site.required" => "La URL non deve superare :max caratteri.",
+            "description.max" => "La descrizione non deve superare :max caratteri.",
+            "type.max" => "Il Tipo non deve superare :max caratteri.",
+            "tecnology.max" => "La Tecnologia non deve superare :max caratteri.",
+            "web_site.max" => "La URL non deve superare :max caratteri.",
             ];
     }
 }
