@@ -18,7 +18,6 @@ class Project extends Model
         'description',
         'slug',
         'date_creation',
-        'type',
         'tecnology',
         'web_site'
     ] ;

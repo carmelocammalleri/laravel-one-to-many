@@ -5,7 +5,7 @@
         <h1>Dettaglio progetto</h1>
         <h3>{{$project->name}}</h3>
         @if ($project->type)
-        <p>Tipo lavoro: <strong> {{ $project->type->name}}</strong> </p>
+         <p>Tipo lavoro: <strong> {{ $project->type->name}}</strong> </p>
         @endif
         <p>{{$project->description}}</p>
         <p>Url: {{$project->web_site}}</p>
