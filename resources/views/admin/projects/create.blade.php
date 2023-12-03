@@ -39,37 +39,49 @@
         </div>
         {{-- /date_creation form --}}
 
+        {{-- web_site form --}}
         <div class="mb-3">
             <label for="web_site" class="form-label">Url</label>
             <input type="url" class="form-control @error('web_site') is-invalid @enderror" id="web_site" name="web_site">
             @error('web_site')
-                <p class="text-danger">{{ $message }}</p>
+            <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
+        {{-- /web_site --}}
 
+        {{-- tecnology form --}}
         <div class="mb-3">
             <label for="tecnology" class="form-label">Tecnologia</label>
             <input type="text" class="form-control @error('tecnology') is-invalid @enderror" id="tecnology" name="tecnology">
             @error('tecnology')
-                <p class="text-danger">{{ $message }}</p>
+            <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
+        {{-- /tecnology --}}
 
+        {{-- type select options --}}
         <div class="mb-3">
-            <label for="type" class="form-label">Tipo</label>
-            <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type">
-            @error('type')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <label for="type_id" class="form-label">Tipo</label>
+            <select id="type_id" name="type_id">
+                <option value="-">Selezionare una tipologia</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" {{ old('type_id', $project?->type_id) == $type->id?'selected' : '' }} >
+                        {{ $type->name }}
+                    </option>
+                @endforeach
+            </select>
         </div>
+        {{-- /type select options --}}
 
+        {{-- description form --}}
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
             <textarea type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description"></textarea>
             @error('description')
-                <p class="text-danger">{{ $message }}</p>
+            <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
+        {{-- /description form --}}
 
         <div>
             <p class="@error('name') text-danger @enderror">I campi con * sono obbligatori</p>

@@ -28,11 +28,11 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Project $project)
     {
         $title = 'Inserimento nuovo progetto';
         $types = Type::all();
-        return view('admin.projects.create', compact('title','types'));
+        return view('admin.projects.create', compact('title','types','project'));
     }
 
     /**
@@ -46,9 +46,10 @@ class ProjectController extends Controller
         $form_data= $request->all();
         $new_project = new Project;
         $new_project['slug']= Project::generateSlug($form_data['name']);
+        $new_project->type_id = $form_data['type_id'];
         $new_project->fill($form_data);
         $new_project->save();
-        return redirect()->route('admin.projects.show',$new_project->id);
+        return redirect()->route('admin.projects.show', $new_project->id);
     }
 
     /**
