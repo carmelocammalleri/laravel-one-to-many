@@ -22,15 +22,17 @@
             <label for="tecnology" class="form-label">Tecnologia</label>
             <input type="text" class="form-control" id="tecnology" name="tecnology" value="{{ old('tecnology',$project->tecnology) }}">
         </div>
+
         <div class="mb-3">
             <label for="type_id" class="form-label">Tipo</label>
-            <select id="type_id" name="type_id" class="form-select">
-                <option value="-">Selezionare una tipologia</option>
+            <select id="type_id" name="type_id">
+                <option value="">Selezionare una tipologia</option>
                 @foreach ($types as $type)
-                <option value="{{ $type->id }}" {{ old('type_id', $project?->type_id) == $type->id?'selected' : '' }} >{{ $type->name }}</option>
+                    <option value="{{ $type->id }}" {{ old('type_id', $project?->type_id) == $type->id? 'selected' : '' }} >{{ $type->name }}</option>
                 @endforeach
             </select>
         </div>
+
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
             <textarea type="text" class="form-control" id="description" name="description" value="{{ old('description', $project->description) }}"></textarea>

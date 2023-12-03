@@ -93,6 +93,7 @@ class ProjectController extends Controller
             $form_data['slug'] = Project::generateSlug($form_data['name']);
         }
 
+        $project->type_id = $form_data['type_id'];
         $project->update($form_data);
         return redirect()->route('admin.projects.show', $project);
     }
