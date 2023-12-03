@@ -26,7 +26,7 @@
                   <td>{{ $project->type->name ?? '-'}}</td>
                   <td>
                     <a class="btn btn-success" href="{{ route('admin.projects.show', $project->id)}}"><i class="fa-solid fa-eye"></i></a>
-                    <a class="btn btn-warning" href="{{route('admin.projects.edit', $project)}}"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a class="btn btn-warning text-white" href="{{route('admin.projects.edit', $project)}}"><i class="fa-regular fa-pen-to-square"></i></a>
                     <form class="d-inline-block"
                         action="{{ route('admin.projects.destroy', $project->id) }}"
                        method="POST"
