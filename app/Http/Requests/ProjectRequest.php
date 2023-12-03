@@ -25,15 +25,15 @@ class ProjectRequest extends FormRequest
             "name" => "required|min:2|max:100",
             "date_creation" => "required|numeric",
             "description" => "required|max:200",
-            "type" => "required|max50",
+            "type" => "required|max:50",
             "tecnology" => "required|max:50",
             "web_site" => "required|max:200"
             ];
-            }
-            public function messages(){
-            return [
+    }
+    public function messages(){
+        return [
             "name.required" => "Il nome è un campo obbligatorio.",
-            "name.min" => "Il nome deve essere almeno di :min caratteri.",
+            "name.min" => "Il nome deve essere lungo almeno :min caratteri.",
             "name.max" => "Il nome deve essere minore di :max caratteri",
             "date_creation.numeric" => "La data deve essere un numero.",
             "description.required" => "La descrizione non deve superare :max caratteri.",

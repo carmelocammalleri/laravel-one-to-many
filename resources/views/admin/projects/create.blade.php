@@ -3,13 +3,31 @@
 @section('content')
 <div class="container">
     <h1>{{$title}}</h1>
+
+    {{-- errori visuale --}}
+    @if($errors->any())
+        <div class="alert alert-danger" role="alert" >
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+   {{-- /errori visuale --}}
+
     <form action="{{route('admin.projects.store')}}" method="POST">
         @csrf
 
+        {{-- name form --}}
         <div class="mb-3">
           <label for="name" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="name" name="name">
+          <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+          @error('name')
+            <p class="text-danger">{{ $message }}</p>
+          @enderror
         </div>
+
         <div class="mb-3">
           <label for="date_creation" class="form-label">Data di creazione</label>
           <input type="date" class="form-control" id="date_creation" name="date_creation">
